@@ -2,9 +2,7 @@
 
 use Patterns\Routing\Router;
 use Patterns\Routing\Request;
-
-use Patterns\Factory\Contact;
-use Patterns\Factory\PostgressqlPoster;
+use Patterns\Factory\ContactResource;
 
 $router = new Router(new Request);
 
@@ -28,13 +26,13 @@ $router->post('/send-contact', function ($request) {
    $user = 'root';
    $password = 'root';
 
-   $contact = new Contact();
-   $contactInserted = $contact->addContact(new PostgressqlPoster($user, $password), $body);
+   $contact = new ContactResource();
+   $contactInserted = $contact->store($body);
 
    $response = array();
    $response['status'] = 'success';
 
-   if(!$contactInserted){
+   if (!$contactInserted) {
       $response['status'] = 'error';
    }
 

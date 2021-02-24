@@ -2,18 +2,16 @@
 
 namespace Patterns\Factory;
 
-use Patterns\Factory\DBConnector;
-
 class PostgressqlConnector implements DBConnector{
 
    private $user, $password;
 
-   public function __construct($user, $password){
-      $this->user = $user;
-      $this->password = $password;
+   public function __construct(){
+      $this->user = $_ENV['POSTGRESQL_DB_USER'];
+      $this->password = $_ENV['POSTGRESQL_DB_PASSWORD'];
    }
 
-   public function connect(array $data){
+   public function connect(){
       //echo 'Connected to PostgressSQL';
 
       return true;

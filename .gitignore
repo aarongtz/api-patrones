@@ -1,5 +1,8 @@
 # dependencies
 /vendor
 
+# environment
+.env
+
 # misc
 .DS_Store

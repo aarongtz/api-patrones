@@ -2,19 +2,17 @@
 
 namespace Patterns\Factory;
 
-use Patterns\Factory\DBConnector;
-
-class MySqlConnector implements DBConnector{
+class MysqlConnector implements DBConnector{
 
    private $user, $password;
 
-   public function __construct($user, $password){
-      $this->user = $user;
-      $this->password = $password;
+   public function __construct(){
+      $this->user = $_ENV['MYSQL_DB_USER'];
+      $this->password = $_ENV['MYSQL_DB_PASSWORD'];
    }
 
    public function connect(array $data){
-      //echo 'Connected to MySQL';
+      //echo 'Connected to PostgressSQL';
 
       return true;
    }

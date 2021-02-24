@@ -4,7 +4,7 @@ namespace Patterns\Factory;
 
 interface DBConnector{
 
-   public function connect(array $data);
+   public function connect();
 
    public function insert(array $data);
 
