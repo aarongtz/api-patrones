@@ -2,7 +2,6 @@
 
 namespace Patterns\Factory;
 
-//Implementar alguna interfaz y no hacerla así solamente
 
 class ContactResource implements Resource
 {
@@ -14,8 +13,7 @@ class ContactResource implements Resource
       $db->connect();
       $inserted = $db->insert($data);
 
-
-      return true;
+      return $inserted;
    }
 
    public function show(array $data)
@@ -28,8 +26,4 @@ class ContactResource implements Resource
       return true;
    }
 
-   public function destroy(array $data)
-   {
-      return true;
-   }
 }

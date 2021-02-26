@@ -9,6 +9,4 @@ interface Resource
    public function show(array $data);
 
    public function update(array $data);
-
-   public function destroy(array $data);
 }
